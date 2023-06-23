@@ -1,9 +1,7 @@
 package pageobjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import io.qameta.allure.Step;
+import org.openqa.selenium.*;
 
 public class WebTablesPage extends AbstractPageObject {
     private final By ADD_BUTTON = By.xpath("//button[text()='Add']");
@@ -21,32 +19,32 @@ public class WebTablesPage extends AbstractPageObject {
         super(driver);
     }
 
-
+    @Step("A user opens Registration form")
     public void openRegistrationForm(){
         getElement(ADD_BUTTON).click();
     }
+    @Step("A user fills the form")
     public WebTablesPage fillForm(String firstName, String lastName, String email,String age, String salary, String department){
-        WebElement firstNameField = getElement(FIRST_NAME_FIELD, 4);
-        WebElement lastNameField = getElement(LAST_NAME_FIELD, 4);
-        WebElement emailField = getElement(EMAIL_FIELD, 4);
-        WebElement ageField = getElement(AGE_FIELD, 4);
-        WebElement salaryField = getElement(SALARY_FIELD, 4);
-        WebElement departmentField = getElement(DEPARTMENT_FIELD, 4);
-        WebElement submitButton = getElement(SUBMIT_BUTTON, 4);
+        WebElement firstNameField = getElement(FIRST_NAME_FIELD);
+        WebElement lastNameField = getElement(LAST_NAME_FIELD);
+        WebElement emailField = getElement(EMAIL_FIELD);
+        WebElement ageField = getElement(AGE_FIELD);
+        WebElement salaryField = getElement(SALARY_FIELD);
+        WebElement departmentField = getElement(DEPARTMENT_FIELD);
+        WebElement submitButton = getElement(SUBMIT_BUTTON);
 
 
         firstNameField.clear();
-        lastNameField.clear();
-        emailField.clear();
-        ageField.clear();
-        salaryField.clear();
-        departmentField.clear();
-
         firstNameField.sendKeys(firstName);
+        lastNameField.clear();
         lastNameField.sendKeys(lastName);
+        emailField.clear();
         emailField.sendKeys(email);
+        ageField.clear();
         ageField.sendKeys(age);
+        salaryField.clear();
         salaryField.sendKeys(salary);
+        departmentField.clear();
         departmentField.sendKeys(department);
         submitButton.click();
         return new WebTablesPage(driver);

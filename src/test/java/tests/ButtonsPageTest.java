@@ -1,8 +1,5 @@
 package tests;
 
-import jdk.jfr.Description;
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.ButtonsPage;
@@ -18,5 +15,6 @@ public class ButtonsPageTest extends BaseTest{
         String message = buttonsPage.getMessage();
         Assert.assertEquals(message,"You have done a dynamic click", "The message is wrong");
     }
+
 
 }

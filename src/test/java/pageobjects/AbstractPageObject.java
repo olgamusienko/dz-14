@@ -53,4 +53,11 @@ public abstract class AbstractPageObject {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", getElement(by));
     }
+
+    public void editElementText(WebElement element, String text){
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        System.out.println(element);
+        System.out.println(text);
+        executor.executeScript("arguments[0].setAttribute('value', arguments[1]);", element, text);
+    }
 }

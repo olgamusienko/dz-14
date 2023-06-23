@@ -8,18 +8,14 @@ import org.testng.annotations.*;
 public class BaseTest {
     protected WebDriver driver;
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
         WebDriverManager.safaridriver().setup();
         driver = new SafariDriver();
         driver.manage().window().maximize();
-        System.out.println("The setup process is completed");
     }
-    @AfterTest
-    public void cleanUp(){
-        driver.close();
-    }
-    @AfterGroups
+
+    @AfterClass
     public void shutDown(){
         driver.quit();
     }
